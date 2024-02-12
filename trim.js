@@ -20,7 +20,7 @@ for (let i = str.length - 1; i >= 0; i--) {
 const result = str.slice(firstValid, secondeValid + 1);
 console.log(result);
 
-//Out put ===> salam khoobi    chetori che khabar
+//Output ===> salam khoobi    chetori che khabar
 
 // The second solution
 const myStr = "   salam khoobi    chetori che khabar   ";
