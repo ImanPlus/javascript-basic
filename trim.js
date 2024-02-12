@@ -4,14 +4,14 @@ let firstValid = 0;
 let secondeValid = 0;
 
 for (let i = 0; i < str.length; i++) {
-  if (firstValid === 0 && str[i] != " ") {
+  if (str[i] != " ") {
     firstValid = i;
     break;
   }
 }
 
 for (let i = str.length - 1; i >= 0; i--) {
-  if (secondeValid === 0 && str[i] != " ") {
+  if (str[i] != " ") {
     secondeValid = i;
     break;
   }
