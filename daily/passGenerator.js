@@ -42,7 +42,7 @@ form.addEventListener("submit", (e) => {
     numbersCheckbox,
     signsCheckbox,
   ];
-  console.log(carMap);
+ 
   const div = document.querySelector("#output");
   div.innerHTML = generatePassword(count, carMap);
 });
