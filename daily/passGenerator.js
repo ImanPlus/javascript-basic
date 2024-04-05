@@ -24,28 +24,28 @@ function generatePassword(count = 0, carMap) {
   return password;
 }
 
-const button = document.querySelector("#gen-button");
-button.addEventListener("click", () => {
-  const div = document.querySelector("#output");
+const form = document.getElementById("optionsForm");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
   const countInput = document.querySelector("#count");
   const count = parseInt(countInput.value);
 
-  const form = document.getElementById("optionsForm");
-  let carMap = [];
-  form.addEventListener("submit", () => {
-    const lowerCaseCheckbox = document.getElementById("lowerCase").checked;
-    const upperCaseCheckbox = document.getElementById("uppercase").checked;
-    const numbersCheckbox = document.getElementById("numbers").checked;
-    const signsCheckbox = document.getElementById("signs").checked;
-    carMap = [
-      ...lowerCaseCheckbox,
-      ...upperCaseCheckbox,
-      ...numbersCheckbox,
-      ...signsCheckbox,
-    ];
-    console.log(carMap);
-  });
-
+  const lowerCaseCheckbox = document.getElementById("lowerCase").checked;
+  const upperCaseCheckbox = document.getElementById("uppercase").checked;
+  const numbersCheckbox = document.getElementById("numbers").checked;
+  const signsCheckbox = document.getElementById("signs").checked;
+  const carMap = [
+    lowerCaseCheckbox,
+    upperCaseCheckbox,
+    numbersCheckbox,
+    signsCheckbox,
+  ];
+  console.log(carMap);
+  const div = document.querySelector("#output");
   div.innerHTML = generatePassword(count, carMap);
 });
+
+const button = document.querySelector("#gen-button");
+button.addEventListener("click", () => form.dispatchEvent(new Event("submit")));
